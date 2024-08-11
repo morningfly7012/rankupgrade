@@ -1,0 +1,54 @@
+command /rankupgrade <player> <text> <text>:
+ permission: rank.upgrade
+ permission message: &c&l錯誤 &8&l| &7您沒有權限使用此指令!
+ trigger:
+  if arg 1 has permission "group.knight":
+   if arg-2 is "knight":
+    if arg-3 is "lord":
+     execute console command "/luckperms:lp user %arg 1% parent remove knight"
+     execute console command "/luckperms:lp user %arg 1% parent add lord"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至Lord!" to arg-1
+    if arg-3 is "paladin":
+     execute console command "/luckperms:lp user %arg 1% parent remove knight"
+     execute console command "/luckperms:lp user %arg 1% parent add paladin"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至paladin!" to arg-1
+    if arg-3 is "duke":
+     execute console command "/luckperms:lp user %arg 1% parent remove knight"
+     execute console command "/luckperms:lp user %arg 1% parent add duke"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至duke!" to arg-1
+    if arg-3 is "king":
+     execute console command "/luckperms:lp user %arg 1% parent remove knight"
+     execute console command "/luckperms:lp user %arg 1% parent add king"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至king!" to arg-1
+  else if arg 1 has permission "group.lord":
+   if arg-2 is "lord":
+    if arg-3 is "paladin":
+     execute console command "/luckperms:lp user %arg 1% parent remove lord"
+     execute console command "/luckperms:lp user %arg 1% parent add paladin"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至paladin!" to arg-1
+    if arg-3 is "duke":
+     execute console command "/luckperms:lp user %arg 1% parent remove lord"
+     execute console command "/luckperms:lp user %arg 1% parent add duke"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至duke!" to arg-1
+    if arg-3 is "king":
+     execute console command "/luckperms:lp user %arg 1% parent remove lord"
+     execute console command "/luckperms:lp user %arg 1% parent add king"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至king!" to arg-1
+  else if arg 1 has permission "group.paladin":
+   if arg-2 is "paladin":
+    if arg-3 is "duke":
+     execute console command "/luckperms:lp user %arg 1% parent remove paladin"
+     execute console command "/luckperms:lp user %arg 1% parent add duke"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至duke!" to arg-1
+    if arg-3 is "king":
+     execute console command "/luckperms:lp user %arg 1% parent remove paladin"
+     execute console command "/luckperms:lp user %arg 1% parent add king"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至king!" to arg-1
+  else if arg 1 has permission "group.duke":
+   if arg-2 is "duke":
+    if arg-3 is "king":
+     execute console command "/luckperms:lp user %arg 1% parent remove duke"
+     execute console command "/luckperms:lp user %arg 1% parent add king"
+     message "&8[&b&l!&8] &b&lRank系統 &8→ &a您已升級至king!" to arg-1
+  else:
+   message "&8[&b&l!&8] &b&lRank系統 &8→ &a您購買錯誤的升級!" to arg-1
